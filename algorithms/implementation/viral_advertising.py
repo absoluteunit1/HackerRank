@@ -8,8 +8,3 @@ def viral_advertising(n):
         cumalitive += liked
         shared = liked*3
     return cumalitive
-
-
-print(viral_advertising(1))
-print(viral_advertising(2))
-print(viral_advertising(3))
