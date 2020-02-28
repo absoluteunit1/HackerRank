@@ -1,2 +1,4 @@
 def circular_array_rotation(a, k, queries):
-    pass
+    new_arr = a[-k:] + a[:-k]
+    return [new_arr[i] for i in queries]
+
