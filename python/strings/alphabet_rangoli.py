@@ -9,7 +9,7 @@ def print_rangoli(size):
     for i in range(lines):
         for j in range(lineLength):
             if j%2 == 0:
-                print(letters[0], end="")
+                print(letters[-1:], end="")
             else:
                 print("-", end="")
         print()
