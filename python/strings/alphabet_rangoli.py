@@ -1,25 +1,11 @@
 import string
 
 def print_rangoli(size):
-
-    letters = string.ascii_lowercase[0:size]
-    lines = size*2 - 1
-    lineLength = lines*2 - 1
-
-    for i in range(lines):
-        for j in range(lineLength):
-            if j%2 == 0:
-                print(letters[0], end="")
-            else:
-                print("-", end="")
-        print()
-
-
-# printing a multiplicaton table of numbers 
-# for i in range(1,6):
-#     for j in range(1,6):
-#         print(i*j, end="-") if j != 5 else print(i*j, end="")  # python automatically ends with \n and goes to next line after a print statement; end specifies what to end the print statement with 
-#     print()
-
-print_rangoli(3)
-print_rangoli(5)
+    ls = []
+    letters = string.ascii_lowercase
+    for i in range(size):
+        rangoli = "-".join(letters[i:size])
+        print(rangoli)
+        ls.append( (rangoli[::-1] + rangoli[1:]).center(4*size-3, "-") )
+        print(ls)
+    print('\n'.join( ls[:0:-1] + ls))
