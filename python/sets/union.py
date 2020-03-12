@@ -1,0 +1,5 @@
+n = input()
+N = set(map(int, input().split()))
+m = input()
+M = set(map(int, input().split()))
+print(len(N.union(M)))
