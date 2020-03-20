@@ -1,49 +1,29 @@
-# My first solution
-
-# Brute force approach 
-# Only passed the initial tests
-# Does not execute within the time limit for largest test cases
-
-def acmTeam(topic):
-
-    numberOfWays = 0
-    maximal = len(topic[0])
-
-    for i in range(len(topic)):
-        for j in range(i + 1, len(topic)):
-
-            result = ""
-            for k in range(maximal):
-
-                if topic[i][k] != '1':
-                    result += topic[j][k]
-                else:
-                    result += topic[i][k]
-
-            if result.count('1') == maximal:
-                numberOfWays += 1   
-                         
-    return [maximal, numberOfWays]
-
-# Solution Two
-# Another brute force approach (again, doesn't work for large test cases)
-# Here I add the items 
+# My Solution
+# doesn't work for large test cases
 
 def acmTeam2(topic):
     
     numbeOfWays = 0
-    maximal = len(topic[0])
+    highestSum = 0
+    wordLength = len(topic[0])
 
-    for i in range(len(topic)):
+    sums = []
+
+    for i in range(len(topic) - 1):
         for j in range(i + 1,len(topic)):
+
             a = [int(x) for x in topic[i]]
             b = [int(x) for x in topic[j]]
-            added = [a[x] + b[x] for x in range(maximal)]
-            if all(added) > 0:
-                numbeOfWays += 1
-    return [maximal, numbeOfWays]
+            added = sum ( a[x] or b[x] for x in range(wordLength) )
+            if added > highestSum:
+                highestSum = added
+            sums.append(added)
 
-# Solution Three
+    numbeOfWays = sums.count(highestSum)
+    return [highestSum, numbeOfWays]
+
+# Another Solution
+
 # This is a solution that passes all the tests.
 #   My mistake in previous solutions was that I was assuming the max number of topics a person can know is the 
 # length of the topics list (meaning that all the elements of the string are 1) and so I used len(topic[0]).
@@ -76,4 +56,3 @@ def acmTeam3(topic):
     highest = max(total)
     # total.count(highest) returns a number of how many times the highest number occurs in the list total.
     return [highest, total.count(highest)]
-
