@@ -1,4 +1,5 @@
-def circular_array_rotation(a, k, queries):
-    new_arr = a[-k:] + a[:-k]
-    return [new_arr[i] for i in queries]
+# Solution 
+# Need to review modular arithmetic before proceeding with this question
 
+def circular_array_rotation2(a, k, queries):
+    pass
