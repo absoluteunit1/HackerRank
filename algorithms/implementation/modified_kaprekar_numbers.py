@@ -13,7 +13,3 @@ def karprekarNumbers(p, q):
     else:
         print(" ".join(map(str, listOfNums)))
 
-
-number = str(9**2)
-l = len(number)
-print(number[:l//2] + number[l//2:])
